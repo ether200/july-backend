@@ -16,7 +16,7 @@ module.exports = {
       totalPayment,
     } = ctx.request.body;
     const charge = await stripe.charges.create({
-      amount: totalPayment * 100,
+      amount: (totalPayment * 100).toFixed(0),
       currency: "usd",
       source: token.id,
       description: `User ID: ${idUser}`,
